@@ -1,9 +1,11 @@
 package ua.kovalchuk.springasyncexample;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 public class TestController {
 
@@ -16,6 +18,7 @@ public class TestController {
     @Async
     @GetMapping("/process")
     public void process() {
+        log.info("/process");
         testService.process();
     }
 }
